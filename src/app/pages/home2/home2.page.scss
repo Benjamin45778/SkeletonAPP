@@ -1,13 +1,9 @@
-ion-content {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.container-home {
+  max-inline-size: 420px;
+  margin: 50px auto;
+  text-align: center;
 }
 
-mat-card {
-  width: 90%;
-  max-width: 400px;
-  text-align: center;
-  background-color: #ffffff;
-  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+ion-button {
+  margin-block-start: 12px;
 }

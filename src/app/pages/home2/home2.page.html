@@ -1,13 +1,26 @@
 <ion-header>
-  <ion-toolbar color="primary">
-    <ion-title>Home</ion-title>
+  <ion-toolbar>
+    <ion-title>Inicio</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content class="ion-padding">
-  <h2>¡Bienvenido {{ username }}!</h2>
+  <div class="container-home">
+    <h2 #titleEl style="margin-block-end:20px;font-weight:600">
+      Bienvenido a MuscleMind
+    </h2>
+    <p #descEl style="opacity:.8;margin-block-end:30px">
+      Selecciona una opción para continuar
+    </p>
 
-  <ion-button expand="block" class="ion-margin-top" (click)="logout()">
-    Cerrar sesión
-  </ion-button>
+    <ion-button #btnCatalog expand="block" routerLink="/catalog" shape="round" fill="solid" type="button">
+      Ver Catálogo
+    </ion-button>
+    <ion-button #btnProfile expand="block" routerLink="/profile" shape="round" fill="outline" type="button">
+      Mi Perfil
+    </ion-button>
+    <ion-button #btnRegister expand="block" routerLink="/register" shape="round" color="secondary" type="button">
+      Crear Cuenta
+    </ion-button>
+  </div>
 </ion-content>

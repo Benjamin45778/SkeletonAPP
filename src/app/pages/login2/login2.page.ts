@@ -1,30 +1,42 @@
 import { Component } from '@angular/core';
-import { IonicModule } from '@ionic/angular';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { IonicModule } from '@ionic/angular';
 import { Router } from '@angular/router';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatButtonModule } from '@angular/material/button';
 
 @Component({
   selector: 'app-login2',
-  templateUrl: './login2.page.html',
-  styleUrls: ['./login2.page.scss'],
   standalone: true,
-  imports: [IonicModule, CommonModule, FormsModule],
+  imports: [
+    CommonModule,
+    IonicModule,
+    FormsModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatButtonModule
+  ],
+  templateUrl: './login2.page.html',
+  styleUrls: ['./login2.page.scss']
 })
 export class Login2Page {
-  username: string = '';
+  email: string = '';
   password: string = '';
 
   constructor(private router: Router) {}
 
-login() {
-  if (this.username.trim() && this.password.trim()) {
-    // Guarda para sobrevivir a refresh/F5
-    localStorage.setItem('username', this.username);
+  submit(): void {
+    console.log('Formulario enviado:', this.email, this.password);
 
-    // Pasa el nombre por el estado de la navegación
-    this.router.navigate(['/home2'], { state: { username: this.username } });
-  } else {
-    alert('Por favor, ingresa tus credenciales');
+    if (!this.email || !this.password) {
+      alert('Por favor ingresa tu email y contraseña.');
+      return;
+    }
+
+    alert('¡Felicidades! Inicio de sesión exitoso.');
+
+    this.router.navigate(['/home2'], { replaceUrl: true });
   }
-}}
+}

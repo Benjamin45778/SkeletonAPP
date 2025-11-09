@@ -1,0 +1,23 @@
+services:
+  frontend:
+    build:
+      context: .                 # el Ionic/Angular está en la raíz
+      dockerfile: Dockerfile.frontend
+    ports:
+      - "8080:80"
+
+  backend:
+    build:
+      context: ./backend         # el backend vive en /backend
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+
+  db:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_DB: appdb
+      POSTGRES_USER: appuser
+      POSTGRES_PASSWORD: apppass
+    ports:
+      - "5432:5432"
